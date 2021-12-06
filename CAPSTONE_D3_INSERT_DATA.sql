@@ -1,0 +1,502 @@
+
+
+
+/**** Populate the MOVIES table ********/
+INSERT INTO MOVIE
+VALUES
+('The Shawshank Redemption', '1994' , 142, 28817291);
+INSERT INTO MOVIE
+VALUES
+('The Godfather', '1972' , 175, 246120986);
+INSERT INTO MOVIE
+VALUES
+('The Godfather', '1974' , 202, 48035783);
+INSERT INTO MOVIE
+VALUES
+('The Dark Knight', '2008', 152, 1005973645);
+INSERT INTO MOVIE
+VALUES
+('12 Angry Men', '1957', 96, 955);
+INSERT INTO MOVIE
+VALUES
+('Schindler''s List', '1993' , 195, 322161245);
+INSERT INTO MOVIE
+VALUES
+('The Lord of the Rings: The Return of the King', '2003' , 201, 1142623460);
+INSERT INTO MOVIE
+VALUES
+('Pulp Fiction', '1994' , 154, 213928762);
+INSERT INTO MOVIE
+VALUES
+('The Good, the Bad and the Ugly', '1966' , 161, 25253751);
+INSERT INTO MOVIE
+VALUES
+('The Lord of the Rings: The Fellowship of the Ring', '2001' , 178, 897636149);
+INSERT INTO MOVIE
+VALUES
+('Scarface', '1983' , 170, 65884703);
+INSERT INTO MOVIE
+VALUES
+('Scarface', '1932', 93, 1308000);
+
+/**** Populate the PERSON table ********/
+INSERT INTO PERSON
+VALUES
+('Tim','Robbins', '10-16-1958');
+INSERT INTO PERSON
+VALUES
+('Morgan','Freeman', '6-1-1937');
+INSERT INTO PERSON
+VALUES
+('Marlon','Brando', '4-3-1924');
+INSERT INTO PERSON
+VALUES
+('Al','Pacino', '4-25-1940');
+INSERT INTO PERSON
+VALUES
+('Robert','De Niro', '6-17-1943');
+INSERT INTO PERSON
+VALUES
+('Christian','Bale', '1-30-1974');
+INSERT INTO PERSON
+VALUES
+('Heath','Ledger', '4-4-1979');
+INSERT INTO PERSON
+VALUES
+('Clint','Eastwood', '5-31-1930');
+INSERT INTO PERSON
+VALUES
+('Liam','Neeson', '6-7-1952');
+INSERT INTO PERSON
+VALUES
+('Elijah','Wood', '1-28-1981');
+INSERT INTO PERSON
+VALUES
+('Frank','Darabont', '1-28-1959');
+INSERT INTO PERSON
+VALUES
+('Francis Ford','Coppola', '4-7-1939');
+INSERT INTO PERSON
+VALUES
+('Christopher','Nolan', '7-30-1970');
+INSERT INTO PERSON
+VALUES
+('Quentin','Tarantino', '3-27-1963');
+INSERT INTO PERSON
+VALUES
+('Peter','Jackson', '');
+INSERT INTO PERSON
+VALUES
+('Sidney','Lumet', null);
+INSERT INTO PERSON
+VALUES
+('Steven','Spielberg', null);
+
+
+/**** Populate the ACTOR table ********/
+--(PersonID ,ActorStageName
+INSERT INTO ACTOR
+VALUES
+(101,'Tim Robbins');
+INSERT INTO ACTOR
+VALUES
+(102,'Morgan Freeman');
+INSERT INTO ACTOR
+VALUES
+(103,'Marlon Brando');
+INSERT INTO ACTOR
+VALUES
+(104,'Al Pacino');
+INSERT INTO ACTOR
+VALUES
+(105,'Robert De Niro');
+INSERT INTO ACTOR
+VALUES
+(106,'Christian Bale');
+INSERT INTO ACTOR
+VALUES
+(107,'Heath Ledger');
+INSERT INTO ACTOR
+VALUES
+(108,'Clint Eastwood');
+INSERT INTO ACTOR
+VALUES
+(109,'Liam Neeson');
+INSERT INTO ACTOR
+VALUES
+(110,'Elija Wood');
+
+
+
+/**** Populate the CHARACTER table ********/
+--(ActorID ,MovieID,CharacterFirstName, CharacterLastName
+INSERT INTO CHARACTER
+VALUES
+(211,1,'Andy','Dufresne');
+INSERT INTO CHARACTER
+VALUES
+(212,1,'Ellis Boyd ''Red''','Redding');
+INSERT INTO CHARACTER
+VALUES
+(213,2,'Don Vito','Corleone');
+INSERT INTO CHARACTER
+VALUES
+(214,2,'Michael','Corleone');
+INSERT INTO CHARACTER
+VALUES
+(215,3,'Vito','Corleone');
+INSERT INTO CHARACTER
+VALUES
+(214,3,'Michael','Corleone');
+INSERT INTO CHARACTER
+VALUES
+(216,4,'Bruce','Wayne');
+INSERT INTO CHARACTER
+VALUES
+(217,4,'Joker','');
+INSERT INTO CHARACTER
+VALUES
+(218,9,'Blondie','');
+INSERT INTO CHARACTER
+VALUES
+(219,6,'Oskar','Schindler');
+INSERT INTO CHARACTER
+VALUES
+(220,7,'Frodo','Baggins');
+
+
+/**** Populate the MOVIE_REMAKE table ********/
+--(MovieID,OriginalMovieID 
+
+INSERT INTO MOVIE_REMAKE
+VALUES
+(11,12);
+INSERT INTO MOVIE_REMAKE
+VALUES
+(4);
+/*
+--Can i make two columns that are foreign keys referencing the same primary key
+didn't test but plan too, was just curious
+CREATE TABLE MOVIE_REMAKE(
+	MovieRemakeID	Int				NOT NULL IDENTITY(401,1),
+	MovieID 		Int				NOT NULL,
+	OriginalMovieID Int				NULL	,
+	CONSTRAINT		MOV_REMAKE_PK	PRIMARY KEY(MovieRemakeID),
+	CONSTRAINT		MOV_REMAKE_MOV_FK	FOREIGN KEY(MovieID)	
+							REFERENCES MOVIE(MovieID),
+	CONSTRAINT		OrigMOV_FK	FOREIGN KEY(OriginalMovieID)	
+							REFERENCES MOVIE(MovieID)
+);
+
+
+/**** Populate the PRODUCTION_COMPANY table ********/
+--(CompanyName,CompanyAddress,CompanyCity,CompanyState,CompanyZip
+INSERT INTO PRODUCTION_COMPANY
+VALUES
+('Castle Rock Entertainment','9169 West Sunset Boulevard','West Hollywood','CA',90069);
+INSERT INTO PRODUCTION_COMPANY
+VALUES
+('Paramont Studios','67 Hollywood Blvd','East HollyWood','CA',90070);
+INSERT INTO PRODUCTION_COMPANY
+VALUES
+('Alfran Productions','545 Cleavande ave','Long Beach','CA',15623);
+INSERT INTO PRODUCTION_COMPANY
+VALUES
+('Coppola Company','515 Mafia Lane','Brooklyn','NY',15662);
+INSERT INTO PRODUCTION_COMPANY
+VALUES
+('Warner Bros','5 Superman Street','New York City','NY', 91992);
+INSERT INTO PRODUCTION_COMPANY
+VALUES
+('Legendary Entertainment','78 Lightning Lane','Austin','TX',67643);
+INSERT INTO PRODUCTION_COMPANY
+VALUES
+('Orion Nova Entertainment','9 Galaxy Street','Space','WA',84847);
+INSERT INTO PRODUCTION_COMPANY
+VALUES
+('Universal Pictures','9 Beach Ave','Tampa','FL', 34567);
+INSERT INTO PRODUCTION_COMPANY
+VALUES
+('New Line Cinema','4 Old Circle St','Miami','FL',74736);
+INSERT INTO PRODUCTION_COMPANY
+VALUES
+('MiraMax','6 Broken Mirror Lane','Hollywood','CA',57564);
+INSERT INTO PRODUCTION_COMPANY
+VALUES
+('Eastwood Movies','3 Western Lane','Hollywood','CA',47464);
+INSERT INTO PRODUCTION_COMPANY
+VALUES
+('The Caddo Company','','','', NULL);
+
+
+
+/**** Populate the PRODUCTION_COMPANY_MOVIE table ********/
+--(CompanyID,MovieID
+INSERT INTO PRODUCTION_COMPANY_MOVIE
+VALUES
+(501,1);
+INSERT INTO PRODUCTION_COMPANY_MOVIE
+VALUES
+(502,2);
+INSERT INTO PRODUCTION_COMPANY_MOVIE
+VALUES
+(503,2);
+INSERT INTO PRODUCTION_COMPANY_MOVIE
+VALUES
+(502,3);
+INSERT INTO PRODUCTION_COMPANY_MOVIE
+VALUES
+(504,3);
+INSERT INTO PRODUCTION_COMPANY_MOVIE
+VALUES
+(505,4);
+INSERT INTO PRODUCTION_COMPANY_MOVIE
+VALUES
+(506,4);
+INSERT INTO PRODUCTION_COMPANY_MOVIE
+VALUES
+(507,5);
+INSERT INTO PRODUCTION_COMPANY_MOVIE
+VALUES
+(508,6);
+INSERT INTO PRODUCTION_COMPANY_MOVIE
+VALUES
+(509,7);
+INSERT INTO PRODUCTION_COMPANY_MOVIE
+VALUES
+(510,8);
+INSERT INTO PRODUCTION_COMPANY_MOVIE
+VALUES
+(511,9);
+INSERT INTO PRODUCTION_COMPANY_MOVIE
+VALUES
+(509,10);
+INSERT INTO PRODUCTION_COMPANY_MOVIE
+VALUES
+(508,11);
+INSERT INTO PRODUCTION_COMPANY_MOVIE
+VALUES
+(512,12);
+
+
+/**** Populate the MOVIE_QUOTE table ********/
+--(MovieID, CharacterID, MovieQuoteText
+INSERT INTO MOVIE_QUOTE
+VALUES
+(1,301,'I Tell You Those Voices Soared Higher And Farther Than Anybody In A Gray Place Dares To Dream.');
+INSERT INTO MOVIE_QUOTE
+VALUES
+(1,302,'Every Man Has His Breaking Point.');
+INSERT INTO MOVIE_QUOTE
+VALUES
+(2,303,'I’m gonna make him an offer he can’t refuse');
+INSERT INTO MOVIE_QUOTE
+VALUES
+(2,304,'I know it was you, Fredo.  You broke my heart.  You broke my heart!!');
+INSERT INTO MOVIE_QUOTE
+VALUES
+(4,308,'Madness, as you know, is like gravity, all it takes is a little push.');
+INSERT INTO MOVIE_QUOTE
+VALUES
+(4,307,'I''m not wearing hockey pads.');
+INSERT INTO MOVIE_QUOTE
+VALUES
+(6,310,'Power is when we have every justification to kill, and we don''t.');
+INSERT INTO MOVIE_QUOTE
+VALUES
+(9,309,'There are two kinds of people in the world those with guns and those that dig. You dig?');
+INSERT INTO MOVIE_QUOTE
+VALUES
+(9,309,'I''ll sleep better knowing my good friend is by my side to protect me.');
+INSERT INTO MOVIE_QUOTE
+VALUES
+(9,309,'Every gun makes its own tune.');
+
+/**** Populate the GENRE table ********/
+--(GenreTitle
+INSERT INTO GENRE
+VALUES
+('Romance');
+INSERT INTO GENRE
+VALUES
+('Action');
+INSERT INTO GENRE
+VALUES
+('Drama');
+INSERT INTO GENRE
+VALUES
+('Horror');
+INSERT INTO GENRE
+VALUES
+('Western');
+INSERT INTO GENRE
+VALUES
+('Adventure');
+INSERT INTO GENRE
+VALUES
+('Crime');
+INSERT INTO GENRE
+VALUES
+('Biography');
+INSERT INTO GENRE
+VALUES
+('History');
+INSERT INTO GENRE
+VALUES
+('Comedy');
+INSERT INTO GENRE
+VALUES
+('SciFi');
+INSERT INTO GENRE
+VALUES
+('Documentary');
+
+
+
+/**** Populate the MOVIE_GENRE table ********/
+--(MovieID,GenreID
+INSERT INTO MOVIE_GENRE
+VALUES
+(1,727);
+INSERT INTO MOVIE_GENRE
+VALUES
+(2,727);
+INSERT INTO MOVIE_GENRE
+VALUES
+(2,731);
+INSERT INTO MOVIE_GENRE
+VALUES
+(3,727);
+INSERT INTO MOVIE_GENRE
+VALUES
+(3,731);
+INSERT INTO MOVIE_GENRE
+VALUES
+(4,727);
+INSERT INTO MOVIE_GENRE
+VALUES
+(4,731);
+INSERT INTO MOVIE_GENRE
+VALUES
+(4,726);
+INSERT INTO MOVIE_GENRE
+VALUES
+(5,727);
+INSERT INTO MOVIE_GENRE
+VALUES
+(5,731);
+INSERT INTO MOVIE_GENRE
+VALUES
+(6,732);
+INSERT INTO MOVIE_GENRE
+VALUES
+(6,727);
+INSERT INTO MOVIE_GENRE
+VALUES
+(6,733);
+INSERT INTO MOVIE_GENRE
+VALUES
+(7,726);
+INSERT INTO MOVIE_GENRE
+VALUES
+(7,730);
+INSERT INTO MOVIE_GENRE
+VALUES
+(7,727);
+INSERT INTO MOVIE_GENRE
+VALUES
+(8,731);
+INSERT INTO MOVIE_GENRE
+VALUES
+(8,727);
+INSERT INTO MOVIE_GENRE
+VALUES
+(9,729);
+INSERT INTO MOVIE_GENRE
+VALUES
+(10,726);
+INSERT INTO MOVIE_GENRE
+VALUES
+(10,730);
+INSERT INTO MOVIE_GENRE
+VALUES
+(10,727);
+INSERT INTO MOVIE_GENRE
+VALUES
+(11,731);
+INSERT INTO MOVIE_GENRE
+VALUES
+(11,727);
+INSERT INTO MOVIE_GENRE
+VALUES
+(12,731);
+INSERT INTO MOVIE_GENRE
+VALUES
+(12,727);
+INSERT INTO MOVIE_GENRE
+VALUES
+(12,726);
+
+
+
+/**** Populate the MOVIE_DIRECTOR table ********/
+--(PersonID,MovieID
+INSERT INTO MOVIE_DIRECTOR
+VALUES
+(111,1);
+INSERT INTO MOVIE_DIRECTOR
+VALUES
+(112,2);
+INSERT INTO MOVIE_DIRECTOR
+VALUES
+(112,3);
+INSERT INTO MOVIE_DIRECTOR
+VALUES
+(113,4);
+INSERT INTO MOVIE_DIRECTOR
+VALUES
+(114,8);
+INSERT INTO MOVIE_DIRECTOR
+VALUES
+(108,9);
+INSERT INTO MOVIE_DIRECTOR
+VALUES
+(115,7);
+INSERT INTO MOVIE_DIRECTOR
+VALUES
+(115,10);
+INSERT INTO MOVIE_DIRECTOR
+VALUES
+(116,5);
+INSERT INTO MOVIE_DIRECTOR
+VALUES
+(117,6);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
